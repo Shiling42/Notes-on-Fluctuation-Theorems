@@ -1,0 +1,337 @@
+
+\documentclass[ reprint, amsmath,amssymb, aps,]{revtex4-1}
+%\documentclass{article}
+\usepackage{graphicx}% Include figure files
+\usepackage{dcolumn}% Align table columns on decimal point
+\usepackage{bm}% bold math
+
+\begin{document}
+
+%\preprint{APS/123-QED}
+\title{Fluctuation Theorems}% Force line breaks with \\
+
+
+
+\author{Shiling Liang}
+\affiliation{%
+ \'Ecole Polytechnique F\'ed\'erale de Lausanne,Switzerland\\
+}%
+
+%\date{\today}%
+
+\begin{abstract}
+This report is based on the review article
+ by E.M Sevick et al.\cite{Sevick2007} on the fluctuation theorem. I also refer to the original papers of Jarzynski \cite{Jarzynski1997,Evans2002,Jarzynski2003} and adopt notation from a book written by Evans et al. \cite{evans2016fundamentals}. I discuss the motivation for proposing the fluctuation theorem and provide a detailed derivation of the Evans-Searles Fluctuation Theorem, which shows how macroscopic irreversibility emerged from the time-symmetrical equation of motion and addresses the importance of the initial condition of athe system. I also recap the derivation the Crooks Fluctuation Theorem to relate work and free energy of a non-quasistatic process between two states of equilibrium, and I then take the Jarzynski equality as a consequence of the Crooks Fluctuation Theorem. In section \ref{sec:example},a it is shown that a simple physical example with an analytical solution can be used to verify these relations.
+
+\end{abstract}
+
+\maketitle
+
+
+
+\section{Introduction}
+
+ Fluctuation theorems present an analytical description of violations of the second law of thermodynamics; however, they also provide a rigorous proof to this law from a statistical perspective. Classical thermodynamics can only deal with equilibrium systems and quasistatic processes. The behaviours of non-equilibrium systems are unclear within this scheme. Moreover, reversible equations of motion conflict with the monotonically increasing entropy predicted by the second law. Boltzmann's statistical thermodynamics provide the groundwork for solving this problem by using the second law as a statistical law. However, he was not able to determine a quantitive relation. The most recent progress toward this end was the development of the fluctuation theorem in the 1990s. 
+ 
+In 1994, Evans and Searles\cite{evans1994equilibrium} proposed the fluctuation theorem, which calculates the probability of negative and positive entropy production. It is valid for systems of any size and with arbitrary distances from equilibrium. It illustrates how irreversible macroscopic phenomena emerge from time-reversible equations of motion. In 1997, Jarzynski\cite{Jarzynski1997} developed a more practical relation, the Jarzynski equality, which allows us to establish the relationships between work and free energy changes for a non-quasistatic process between two states of equilibrium. This relation reveals more information than do classical thermodynamics, which only reveal discrepancies between work and free energy differences.
+The next year, Crooks\cite{crooks1998nonequilibrium} developed a more general form of the Jarzynski equality: the Crooks Fluctuation Theorem. This theorem calculates the relative probability of given forward and backward trajectories.
+
+
+In this report, I recap the derivations of these relations based on a deterministic Hamiltonian system. I include a short introduction to phase spaces at the beginning and then follow the logical order rather than the chronological order of theorem development (which regards the Jarzynski equality as a consequence of the Crooks Fluctuation Theorem). It is also  demonstrated that how to view the second law of thermodynamics as a consequence of the fluctuation theorem. 
+
+\section{Derivation of Fluctuation Theorems}
+
+\subsection{Phase space and Liouville's Equation}
+In Hamiltonian mechanics, all possible states of a system expanded a phase space. A typical system in our scale has more than $\sim 10^{23}$ particles. Thus, it is not possible to know their exact configurations, so we use a probability distribution function to characterise such systems. By denoting the probability distribution function as $f(\Gamma,t)$, the probability of finding the system in an infinitesimal phase space volume $\mathrm{d}\Gamma$ is 
+
+\begin{equation}
+P(\mathrm{d}\Gamma_t,t)\equiv 
+f(\Gamma_t,t)\mathrm{d}\Gamma_t.
+\end{equation}
+
+For a Hamiltonian system, the total time derivative of $f$ is 
+
+\begin{equation}\label{eq:probability}
+\begin{split}
+\frac{\mathrm{d}f}{\mathrm{d}t}
+&=\frac{\partial f}{\partial t}+\frac{\partial f}{\partial p}\dot{p}+\frac{\partial f}{\partial q}\dot{q}\\
+&=\frac{\partial f}{\partial t}+\frac{\partial f}{\partial \Gamma}\cdot \dot\Gamma.
+\end{split}
+\end{equation}
+The continuity equation must hold for the probability flow in the phase space
+
+\begin{equation}
+\frac{\partial (f\dot{\Gamma})}{\partial \Gamma}+\frac{\partial f}{\partial t}=0.
+\end{equation}
+Using these two equations to eliminate the partial derivative of $t$, one obtains
+\begin{equation}
+\frac{\mathrm{d} f}{\mathrm{d} t}=-f\frac{\partial \dot{\Gamma}}{\partial \Gamma}.
+\end{equation}
+We now denote $\Lambda \equiv\frac{\partial \dot\Gamma}{\partial \Gamma}$, and integrate from the initial time $t=0$ to  $t=\tau$
+\begin{equation}\label{eq:Liouville}
+f(\Gamma_\tau,\tau)=f\left(\Gamma_0,0\right)\exp\left(-\int_0^\tau \Lambda\mathrm{d}t\right).
+\end{equation}
+
+As the probability of a specific phase space volume must be conserved, we can use equation \ref{eq:probability} and equation \ref{eq:Liouville} to obtain the compression factor for the infinitesimal phase space volume:
+\begin{equation}
+\frac{\mathrm{d}\Gamma_\tau}{\mathrm{d}\Gamma_0}=\exp\left(\int_0^\tau\Lambda\mathrm{d}s\right).
+\end{equation}
+
+\subsection{The Everan-searles Fluctuation Theorem (1994)}
+
+The Evans-Searles fluctuation theorem is the most general one, and it can be applied to a system of any size and any distance from equilibrium.
+
+Using time evolution operator $S^t$ to denote the evolution of a phase space point for a period $t$ and time-reversal mapping operator $M^T$ to reverse the trajectory. For a Hamiltonian system, the reverse mapping is noting but reversing the momentum $p\to -p$. Since the dynamics are deterministic, a trajectory can be determined by its initial state. For a trajectory origin at phase point $\Gamma_0$, the corresponding anti-trajectory can be easily represented by its initial phase point $\Gamma^*_0 \equiv M^T\Gamma_t=M^T S^\tau\Gamma_0$. Note that the time-reversal mapping does not change the size of phase space volume. With equation (3), we can obtain
+
+\begin{equation}\label{eq:phase_compress}
+\mathrm{d}\Gamma_0^*=\mathrm{d}\Gamma_\tau=\mathrm{d}\Gamma_0\exp\left(\int_0^\tau \Lambda\mathrm{d}t\right).
+\end{equation}
+
+Alongside the trajectory of a single phase space point, we also consider the evolution of an infinitesimal phase space volume $d\Gamma_0$; that is, a bundle of trajectories. The probability of observing this volume is
+
+\begin{equation}
+P(\mathrm{d}\Gamma_0,0)\equiv \mathrm{d}\Gamma_0 f(\Gamma_0,0) .
+\end{equation}
+Macroscopic reversible systems indicate that the probability of observing the forward bundle of trajectories and the corresponding anti-trajectories should be the same: 
+
+\begin{equation}
+ \mathrm{d}\Gamma_0 f(\Gamma_0,0) =\mathrm{d}\Gamma^*_0 f(\Gamma^*_0,0).
+\end{equation}
+For more general cases, we define a dissipation function to characterize the reversibility of the bundle of trajectories
+
+\begin{equation}
+\begin{split}
+\Omega_\tau(\Gamma_0)
+&\equiv \ln\left(\frac{P(\mathrm{d}\Gamma_0,0)}{P(\mathrm{d}\Gamma_0^*,0)}\right)\\
+&=\ln\left(\frac{f(\mathrm{d}\Gamma_0,0)}{f(\mathrm{d}\Gamma_0^*,0)}\right)-\int_0^\tau \Lambda\mathrm{d}t.
+\end{split}
+\end{equation}
+
+ The positive dissipation function means the anti-trajectories are less probable, and the negative dissipation function gives the opposite case. It takes the value $0$ only in the state of equilibrium, where no macroscopic time evolution can be observed. Moreover, the dissipation function has odd parity
+
+\begin{equation}\label{eq:dissipation_odd}
+\Omega_\tau(\Gamma_0)=-\Omega_\tau(\Gamma_0^*).
+\end{equation}
+Now it is important to calculate the probability of an anti-trajectory occurring within the entire phase space. We can do the following integral to calculate the relative probability of the dissipation function taking the opposite value.
+
+\begin{equation}
+\begin{aligned}
+&\frac{p(\Omega_\tau= A)}{p(\Omega_\tau= -A)}\\
+=&\frac{\int\mathrm{d}\Gamma_0\delta(\Omega_\tau(\Gamma_0)-A)f(\Gamma_0,0)}{\int\mathrm{d}\Gamma_0^*\delta(\Omega_\tau(\Gamma_0^*)+A)f(\Gamma_0^*,0)}\\
+=&\frac{\int\mathrm{d}\Gamma_0\delta(\Omega_\tau(\Gamma_0)-A)f(\Gamma_0,0)}{\int\mathrm{d}\Gamma_0^*\delta(-\Omega_\tau(\Gamma_0)+A)f(\Gamma_0^*
+,0)}\\
+=&\frac{\int\mathrm{d}\Gamma_0\delta(\Omega_\tau(\Gamma_0)-A)f(\Gamma_0,0)}{\int\mathrm{d}\Gamma_0\delta(-\Omega_\tau(\Gamma_0)+A)f(\Gamma_0,0)\exp(-{\Omega}_\tau(\Gamma_0))}\\
+=&\exp(A),
+\end{aligned}
+\end{equation}
+where we used the fact that $\Gamma_0$ is a dummy variable for the integral over the whole phase space. Then we use the equation \ref{eq:dissipation_odd}. To calculate the third equality, we used the equation \ref{eq:phase_compress} with the definition of the dissipation function. The result,
+
+\begin{equation}
+\frac{p(\Omega_\tau=A)}{p(\Omega_\tau=-A)}=\exp(A),
+\end{equation}
+implies that for all trajectories in the phase space, irreversible cases are exponentially more probable than are reversible cases. We can further calculate the average of the dissipation function over the whole phase space:
+
+\[
+ \begin{aligned}\label{eq:devESFT}
+\langle \exp(-{\Omega}_\tau) \rangle
+&=\int_{-\infty}^\infty \mathrm{d}A\ \exp(-A)p({\Omega}_\tau=A)\\
+&=\int_{-\infty}^\infty \mathrm{d}A\  \exp(A)p(-{\Omega}_\tau)\exp(A)\\
+&=\int_{-\infty}^\infty \mathrm{d}A\  p({\Omega}_\tau=-A)\\
+&=1.
+\end{aligned}
+\]
+Note that $\exp(-\Omega_\tau)$  is convex function, which lead to the Jasen's inequality
+
+\begin{equation}
+\langle \Omega_\tau\rangle \geq 0.
+\end{equation}
+This is exactly what we expect -- the second law inequality.
+
+\subsection{Crooks Fluctuation Theorem (1998)}
+Crooks Fluctuations Theorem and the Jarzynski equality address the non-equilibrium processes between two equilibriums (unlike classical thermodynamics, which can only describe quasistatic work relations). The Jarzynski equality directly presents the work relation regarding actions performed at any rate. The Crooks Fluctuation Theorem even measures the probability distribution of trajectories. These relations allow us to describe certain microscopic operations, such as the stretching of a polymer.
+
+The Crooks Fluctuation Theorem was developed later than the Jarzynski equality. However, as it is a more general formula, we view the Jarzynski equality as a direct consequence of the Crooks Fluctuation Theorem in the following discussion. The Crooks Fluctuation Theorem reads
+
+\begin{equation}
+\frac{p_f(W=\mathcal{A})}{p_r(W=-\mathcal{A})}=\exp\left(\beta(\mathcal{A}-\Delta F)\right),
+\end{equation}
+where $p_f(W=\mathcal{A})$ is the probability of work done on the system $W=\mathcal{A}$ between the initial equilibrium state $A$ to the final equilibrium state $B$. Additionally, $p_B(W=\mathcal{A})$ is the probability distribution of the reverse trajectories. On the right-hand side, $\Delta F$ is the free energy difference between the two states, and $\beta\equiv\frac{1}{k_BT} $ is the reverse temperature of the heat bath.
+
+
+The external work is introduced by a control parameter $\lambda$. The Hamiltonian of the system can be written as
+
+\begin{equation}
+H(\Gamma_t,t,\lambda_t)=T(\mathbf{p})+V(\mathbf{q},\lambda),
+\end{equation}
+where $T$ and $V$ are the kinetic energy and the potential, respectively. The potential can be adjusted by the external control parameter $\lambda$ and varies from the initial value $\lambda=A$ to the final value $\lambda=B$. If it varies slowly enough,it becomes a trivial quasistatic case. In more general cases, an external agent drives the system out of equilibrium before it relaxes into a state of equilibrium once again.%Please ensure that I have not changed your intended meaning here.
+
+
+Initially, the system is in contact with a heat bath at a temperature of $T=\frac{1}{k_B\beta}$. Thus, it is a canonical ensemble characterised by the Boltzmann probability distribution:
+
+\begin{equation}
+p(H(\Gamma_0,A))=\frac{1}{Z_A}e^{-\beta H(\Gamma_0,A)}.
+\end{equation}
+Then the $\lambda$ varies from an initial value of $A$ to final value of $B$ in a specific protocol. The final equilibrium state has the probability distribution
+
+\begin{equation}
+p(H(\Gamma_\tau,B))=\frac{1}{Z_B}e^{-\beta H(\Gamma_\tau,B)},
+\end{equation}
+and the change of Hamiltonian can be written as
+
+\begin{equation}
+H(\Gamma_\tau,B)-H(\Gamma_0, A)=\int_0^\tau \mathrm{d}t \ \frac{\partial H(\Gamma,\lambda)}{\partial\lambda}\dot\lambda +\frac{\partial H(\Gamma,\lambda)}{\partial{\Gamma}}\cdot\dot{\Gamma}
+\end{equation}
+The first term of the integral is the total work done on the system, and the second term is the heat absorbed from the environment\footnote{For an intuitive understanding of this relation, see the Appendix. More rigorous proof can be obtained with Nos\'e - Hoover thermostat.}.
+
+\begin{align}
+Q(\Gamma_0,\tau)&\equiv\int_0^\tau\mathrm{d}t\  \frac{\partial H(\Gamma,\lambda)}{\partial{\Gamma}}\cdot\dot{\Gamma}=k_BT\int_0^\tau
+\Lambda(\Gamma_t) \mathrm{d}t\\
+W(\Gamma_0,\tau)&\equiv \int_0^\tau\mathrm{d}t\ \frac{\partial H(\Gamma,\lambda)}{\partial\Gamma}\cdot\dot\Gamma.
+\end{align}
+Hence, we can express the work done as a function of the energy difference associated with the initial and the final states, and we can express the phase space compression factor as
+\begin{equation}\label{eq:work_relation}
+W(\Gamma_0,\tau)=H(\Gamma_\tau,B)-H(\Gamma_0, A)-k_BT\int_0^\tau\Lambda(\Gamma_t)\mathrm{d}t.
+\end{equation}
+ 
+As time evolution is deterministic for a Hamiltonian system, the probability distribution of trajectories with $W=\mathcal{A}$ is directly determined by the initial distribution function associated with the work parameter $\lambda=A$
+\begin{equation}\label{eq:pf}
+p_f(W=\mathcal{A})
+=\int d\Gamma_0\delta(W(\Gamma_0,\tau)-\mathcal{A}) p(H(\Gamma_0,A)).
+\end{equation}
+In the same way, we can write the probability of the anti-trajectories during which the system does work $\mathcal{A}$ to the external agent:
+
+\begin{equation}\label{eq:pb}
+p_b(W=-\mathcal{A})=\int d\Gamma_0^*\delta(W(\Gamma_0^*,A)+\mathcal{A}) p(H(\Gamma_0^*(,B)).
+\end{equation}
+
+
+Based on the results obtained, we can write the relative probability as
+
+\begin{equation}
+\begin{split}
+&\frac{p_f(W=\mathcal{A})}{p_b(W=-\mathcal{A})}\\
+=&\frac{\int d\Gamma_0\delta(W(\Gamma_0,\tau)-\mathcal{A}) p(H(\Gamma_0,A))}{\int d\Gamma_0^*\delta(W(\Gamma_0^*,\tau)+\mathcal{A}) p(H(\Gamma_0^*,B))}\\
+=&\frac{Z_B}{Z_A}\frac{\int d\Gamma_0\delta(W(\Gamma_0,\tau)-\mathcal{A}) e^{-\beta H(\Gamma_0, A)}}{\int d\Gamma_0^*\delta(W(\Gamma_0^*,\tau)+\mathcal{A}) e^{-\beta H(\Gamma_0^*,B)}}\\
+=&\frac{Z_B}{Z_A}\frac{\int d\Gamma_0\delta(W(\Gamma_0,\tau)-\mathcal{A}) e^{-\beta H(\Gamma_0, A)}}{\int d\Gamma_0\delta(W(\Gamma_0,\tau)-\mathcal{A}) e^{-\beta H(\Gamma_0,A)}e^{-\beta W(\Gamma_0,\tau)}}\\
+=&\frac{Z_B}{Z_A}e^{\beta \mathcal{A}}\\
+=&\exp\left({-\beta\Delta F+\beta \mathcal{A}}\right),
+\end{split}
+\end{equation}
+where the first equality is direct substitution of equation \ref{eq:pf} and \ref{eq:pb}. Then writing explicitly the equilibrium distribution leads to the second equality. To get the third equality, we used equation \ref{eq:work_relation} to rewrite the denominator. With some simplification, we reach the final expression which is so-called Crooks fluctuation relation
+\begin{equation}
+\frac{p_f(W=\mathcal{A})}{p_b(W=-\mathcal{A})}=\exp\left({-\beta\Delta F+\beta \mathcal{A}}\right).
+\end{equation}
+\subsection{Jarzynski equality (1997)}
+As we mentioned before, Jarzynski equality can be regarded as a direct consequence of Crooks fluctuation theorem. With this probability distribution of trajectories given by Crooks FT, we can calculate the Jarzynski average of the work done on the system between initial and final state associated with $\lambda = A$ and $\lambda = B$
+
+\begin{equation}
+\begin{split}
+\langle \exp(-\beta W)\rangle &
+= \int \mathrm{d}\mathcal{A}\  p_f(W=\mathrm{A})\exp(-\beta\mathcal{A})\\
+&=\int\mathrm{d}\mathcal{A}\  p_b(W=-\mathrm{A})\exp(\beta\Delta F)\\
+&=\exp(-\beta\Delta F).
+\end{split}
+\end{equation}
+This equality is highly useful; it allows for the calculation of the free energy difference by conducting the experiment many times. Due to the convexity of the exponential function, the Jarzynski equality implies
+
+\begin{equation}
+    \Delta F \leq W.
+\end{equation}
+Therefore we can see it is consistent with the second law of thermodynamics.
+\section{Example}\label{sec:example}
+\subsection{Colloidal in an optical trap}
+The simplest and most practical example of applying fluctuation theorems is through a single colloidal in an optical trap. This system has the smallest possible degrees of freedom, and the optic trap can be approximated as a harmonical potential, which is the simplest potential providing restoring force. For such a system, we can obtain an analytical solution to verify the fluctuation theorems.
+
+We treat the optical trap as a harmonical potential with the spring constant $k$ and assume the particle confined in the trap is over-damped; in this way, we can neglect the kinetic energy. Thus, the Hamiltonian can be written as
+\begin{equation}
+    H(\Gamma_0,\lambda)=\phi_{ext}=\frac{1}{2}k^2 \mathbf{r}^2,
+\end{equation}
+where $\lambda$ is the control parameter. At the beginning, $k=k_0$ and the system is in a canonical distribution 
+\begin{equation}\label{eq:collodid_initial_distribution}
+p_{k_0}(\mathbf{r})=\frac{2\pi}{\beta k_0}e^{-\beta \frac{1}{2}k_0 \mathbf{r}^2}.
+\end{equation}
+At time $t=0$, we suddenly change the intensity of the laser so that the spring constant jumps to $k_1$. In this process, the work done on the system is dependent on the distance from the center at that moment
+
+\begin{equation}\label{eq:colloidal_work}
+W=\int_0^\tau dt \dot{\lambda}\frac{d\phi_{ext}}{d\lambda}=\frac{1}{2}(k_1-k_0)\mathbf{r}_0^2.
+\end{equation}
+
+Now the system is in an non-equilibrium state and will relax to a state of equilibrium: 
+\begin{equation}
+p_{k_1}(\mathbf{r})=\frac{2\pi}{\beta k_1}e^{-\beta \frac{1}{2}k_1 \mathbf{r}^2}.
+\end{equation}
+Accordingly, the free energy difference can be directly obtained from the initial and final equilibrium distributions:
+\begin{equation}
+\Delta F=-k_BT\ln{Z_{k_1}}+k_BT\ln{Z_{k_0}}=k_BT\ln{\frac{k_0}{k_1}}
+\end{equation}
+
+To calculate the Jarzynski average of the work, we can first find the probability distribution of the trajectories as a function of work by combining equation \ref{eq:collodid_initial_distribution} and equation \ref{eq:colloidal_work}:
+
+\begin{equation}
+p_{k_0\to k_1}(W)=p_{k_0}(W)=\frac{k_1-k_0}{\beta k_0}e^{-\beta\frac{k_0W}{k_1-k_0}}.
+\end{equation}
+Then, we can easily calculate the Jarzynski average and confirm the Jarzynski equality: 
+
+\begin{equation}
+\begin{split}
+\langle e^{-\beta W}\rangle
+&=\int_0^\infty \mathrm{d}W\ e^{-\beta W}\frac{k_1-k_0}{\beta k_0}e^{-\beta\frac{k_0W}{k_1-k_0}W}\\
+&=\frac{k_1}{k_0}\\
+&=e^{-\beta \Delta F}.
+\end{split}
+\end{equation}
+Following the same procedure, we can also calculate the probability of the reverse process $p_{k_0\to k_1}(W)$ and confirm the Crooks Fluctuation Theorem: 
+
+\begin{equation}
+\frac{p_{k_0\to k_1}(W)}{p_{k_1\to k_0}(-W)}=\frac{\frac{k_1-k_0}{\beta k_0}e^{-\beta\frac{k_0W}{k_1-k_0}}}{\frac{k_0-k_1}{\beta k_1}e^{\beta\frac{k_1W}{k_0-k_1}}}=e^{\beta(W-\Delta F)}.
+\end{equation}
+
+This example can also be use to verify the Evans-Searles Fluctuation Theorem. Since the Evans-Searles Fluctuation Theorem requires that all processes are time-reversible, we need to change the protocol to meet this condition, which involves changing $k_1$ back to $k_0$ at time $t=\tau$.
+
+\section{conclusion}
+
+Fluctuation theorems bring us a deeper understanding of the irreversible process. Evans-Searles fluctuations resolved Lochimid‘s objection on Boltzmann's statistical thermodynamics. The Crooks Fluctuation Theorem and the Jarzynsky equality are powerful tools for investigating small systems with non-negligible fluctuations. However, due to time restrictions, we can only discuss the deterministic dynamics described by Hamiltonian mechanics. The quantum version of the fluctuation theorem and stochastic dynamics are also worth discussing. 
+\section{Appendix}
+
+\subsection{Hamiltonian mechanics with dissipative force}
+
+
+See in section 2, \textit{Fluctuation Theorem}, E.M Sevick et al.\cite{Sevick2007}.
+
+
+\subsection{Heat absorbed and the phase space compression factor}
+
+In the derivation of the Crooks Fluctuation Theorem, we used the relation
+
+\begin{equation}
+  Q(\Gamma_0,\tau)\equiv\int_0^\tau\mathrm{d}t\  \frac{\partial H(\Gamma,\lambda)}{\partial{\Gamma}}\cdot\dot{\Gamma}=k_BT\int_0^\tau
+\Lambda(\Gamma_t) \mathrm{d}t
+\end{equation}
+
+without proof. For an intuitive understanding, we can consider a specific case in which heat slowly enters in a microcanonical ensemble. We begin by writing the above relation in the instantaneous form:
+
+\begin{equation}
+\dot{Q}(\Gamma_t)\equiv\frac{\partial H(\Gamma,\lambda)}{\partial \Gamma}\cdot\dot\Gamma = k_BT\Lambda(\Gamma_t)
+\end{equation}
+To understand this, let us consider the case for states of equilibrium with quasistatic processes, in which Boltzmann's entropy is defined as 
+
+\begin{equation}
+S=k_B\log \Omega,
+\end{equation}
+where $\Omega$ is the number of states. In a quasistatic process, we have 
+
+\begin{equation}
+\mathrm{d}S=\frac{\mathrm{d}Q}{T}.
+\end{equation}
+Thus,
+
+\begin{equation}
+\dot{Q}\equiv\frac{\mathrm{d}Q}{\mathrm{d}t}=T\frac{\mathrm{d}S}{\mathrm{d}t}=k_BT\frac{\mathrm{d}}{\mathrm{d}t}\log{\Omega}=k_BT\Lambda(\Gamma).
+\end{equation}
+
+\nocite{*}
+%\medskip
+ 
+\bibliographystyle{unsrt}
+\bibliography{references}
+\end{document}
