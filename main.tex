@@ -14,14 +14,14 @@
 
 \author{Shiling Liang}
 \affiliation{%
- \'Ecole Polytechnique F\'ed\'erale de Lausanne,Switzerland\\
+Institute of Physics, \'Ecole Polytechnique F\'ed\'erale de Lausanne (EPFL),1015 Lausanne, Switzerland\\
 }%
 
 %\date{\today}%
 
 \begin{abstract}
 This report is based on the review article
- by E.M Sevick et al.\cite{Sevick2007} on the fluctuation theorem. I also refer to the original papers of Jarzynski \cite{Jarzynski1997,Evans2002,Jarzynski2003} and adopt notation from a book written by Evans et al. \cite{evans2016fundamentals}. I discuss the motivation for proposing the fluctuation theorem and provide a detailed derivation of the Evans-Searles Fluctuation Theorem, which shows how macroscopic irreversibility emerged from the time-symmetrical equation of motion and addresses the importance of the initial condition of athe system. I also recap the derivation the Crooks Fluctuation Theorem to relate work and free energy of a non-quasistatic process between two states of equilibrium, and I then take the Jarzynski equality as a consequence of the Crooks Fluctuation Theorem. In section \ref{sec:example},a it is shown that a simple physical example with an analytical solution can be used to verify these relations.
+ by E.M Sevick et al.\cite{Sevick2007} on the fluctuation theorem. I also refer to the original papers of Jarzynski \cite{Jarzynski1997,Evans2002,Jarzynski2003} and adopt notation from a book written by Evans et al. \cite{evans2016fundamentals}. I discuss the motivation for proposing the fluctuation theorem and provide a detailed derivation of the Evans-Searles Fluctuation Theorem, which shows how macroscopic irreversibility emerged from the time-symmetrical equation of motion and addresses the importance of the initial condition of the system. I also recap the derivation the Crooks Fluctuation Theorem to relate work and free energy of a non-quasistatic process between two states of equilibrium, and I then take the Jarzynski equality as a consequence of the Crooks Fluctuation Theorem. In section \ref{sec:example}, it is shown that a simple physical example with an analytical solution can be used to verify these relations.
 
 \end{abstract}
 
@@ -31,13 +31,13 @@ This report is based on the review article
 
 \section{Introduction}
 
- Fluctuation theorems present an analytical description of violations of the second law of thermodynamics; however, they also provide a rigorous proof to this law from a statistical perspective. Classical thermodynamics can only deal with equilibrium systems and quasistatic processes. The behaviours of non-equilibrium systems are unclear within this scheme. Moreover, reversible equations of motion conflict with the monotonically increasing entropy predicted by the second law. Boltzmann's statistical thermodynamics provide the groundwork for solving this problem by using the second law as a statistical law. However, he was not able to determine a quantitive relation. The most recent progress toward this end was the development of the fluctuation theorem in the 1990s. 
+ Fluctuation theorems present an analytical description of violations of the second law of thermodynamics; however, they also provide rigorous proof to this law from a statistical perspective. Classical thermodynamics can only deal with equilibrium systems and quasistatic processes. The behaviours of non-equilibrium systems are unclear within this scheme. Moreover, reversible equations of motion conflict with the monotonically increasing entropy predicted by the second law. Boltzmann's statistical thermodynamics provides the groundwork for solving this problem by using the second law as a statistical law. However, he was not able to determine a quantitive relation. The most recent progress toward this end was the development of the fluctuation theorem in the 1990s. 
  
-In 1994, Evans and Searles\cite{evans1994equilibrium} proposed the fluctuation theorem, which calculates the probability of negative and positive entropy production. It is valid for systems of any size and with arbitrary distances from equilibrium. It illustrates how irreversible macroscopic phenomena emerge from time-reversible equations of motion. In 1997, Jarzynski\cite{Jarzynski1997} developed a more practical relation, the Jarzynski equality, which allows us to establish the relationships between work and free energy changes for a non-quasistatic process between two states of equilibrium. This relation reveals more information than do classical thermodynamics, which only reveal discrepancies between work and free energy differences.
+In 1994, Evans and Searles\cite{evans1994equilibrium} proposed the fluctuation theorem, which calculates the probability of negative and positive entropy production. It is valid for systems of any size and with arbitrary distances from equilibrium. It illustrates how irreversible macroscopic phenomena emerge from time-reversible equations of motion. In 1997, Jarzynski\cite{Jarzynski1997} developed a more practical relation, Jarzynski equality, which allows us to establish the relationships between work and free energy changes for a non-quasistatic process between two states of equilibrium. This relation reveals more information than do classical thermodynamics, which only reveals discrepancies between work and free energy differences.
 The next year, Crooks\cite{crooks1998nonequilibrium} developed a more general form of the Jarzynski equality: the Crooks Fluctuation Theorem. This theorem calculates the relative probability of given forward and backward trajectories.
 
 
-In this report, I recap the derivations of these relations based on a deterministic Hamiltonian system. I include a short introduction to phase spaces at the beginning and then follow the logical order rather than the chronological order of theorem development (which regards the Jarzynski equality as a consequence of the Crooks Fluctuation Theorem). It is also  demonstrated that how to view the second law of thermodynamics as a consequence of the fluctuation theorem. 
+In this report, I recap the derivations of these relations based on a deterministic Hamiltonian system. I include a short introduction to phase spaces at the beginning and then follow the logical order rather than the chronological order of theorem development (which regards the Jarzynski equality as a consequence of the Crooks Fluctuation Theorem). It is also demonstrated how to view the second law of thermodynamics is a consequence of the fluctuation theorem. 
 
 \section{Derivation of Fluctuation Theorems}
 
@@ -77,7 +77,7 @@ As the probability of a specific phase space volume must be conserved, we can us
 \frac{\mathrm{d}\Gamma_\tau}{\mathrm{d}\Gamma_0}=\exp\left(\int_0^\tau\Lambda\mathrm{d}s\right).
 \end{equation}
 
-\subsection{The Everan-searles Fluctuation Theorem (1994)}
+\subsection{The Evans-Searles Fluctuation Theorem (1994)}
 
 The Evans-Searles fluctuation theorem is the most general one, and it can be applied to a system of any size and any distance from equilibrium.
 
@@ -87,7 +87,7 @@ Using time evolution operator $S^t$ to denote the evolution of a phase space poi
 \mathrm{d}\Gamma_0^*=\mathrm{d}\Gamma_\tau=\mathrm{d}\Gamma_0\exp\left(\int_0^\tau \Lambda\mathrm{d}t\right).
 \end{equation}
 
-Alongside the trajectory of a single phase space point, we also consider the evolution of an infinitesimal phase space volume $d\Gamma_0$; that is, a bundle of trajectories. The probability of observing this volume is
+Alongside the trajectory of a single-phase space point, we also consider the evolution of an infinitesimal phase space volume $d\Gamma_0$; that is, a bundle of trajectories. The probability of observing this volume is
 
 \begin{equation}
 P(\mathrm{d}\Gamma_0,0)\equiv \mathrm{d}\Gamma_0 f(\Gamma_0,0) .
@@ -140,7 +140,7 @@ implies that for all trajectories in the phase space, irreversible cases are exp
 &=1.
 \end{aligned}
 \]
-Note that $\exp(-\Omega_\tau)$  is convex function, which lead to the Jasen's inequality
+Note that $\exp(-\Omega_\tau)$  is convex function, which lead to the Jensen's inequality
 
 \begin{equation}
 \langle \Omega_\tau\rangle \geq 0.
@@ -148,7 +148,7 @@ Note that $\exp(-\Omega_\tau)$  is convex function, which lead to the Jasen's in
 This is exactly what we expect -- the second law inequality.
 
 \subsection{Crooks Fluctuation Theorem (1998)}
-Crooks Fluctuations Theorem and the Jarzynski equality address the non-equilibrium processes between two equilibriums (unlike classical thermodynamics, which can only describe quasistatic work relations). The Jarzynski equality directly presents the work relation regarding actions performed at any rate. The Crooks Fluctuation Theorem even measures the probability distribution of trajectories. These relations allow us to describe certain microscopic operations, such as the stretching of a polymer.
+Crooks Fluctuations Theorem and the Jarzynski equality address the non-equilibrium processes between two equilibriums (unlike classical thermodynamics, which can only describe quasistatic work relations). Jarzynski equality directly presents the work relation regarding actions performed at any rate. The Crooks Fluctuation Theorem even measures the probability distribution of trajectories. These relations allow us to describe certain microscopic operations, such as the stretching of a polymer.
 
 The Crooks Fluctuation Theorem was developed later than the Jarzynski equality. However, as it is a more general formula, we view the Jarzynski equality as a direct consequence of the Crooks Fluctuation Theorem in the following discussion. The Crooks Fluctuation Theorem reads
 
@@ -163,7 +163,7 @@ The external work is introduced by a control parameter $\lambda$. The Hamiltonia
 \begin{equation}
 H(\Gamma_t,t,\lambda_t)=T(\mathbf{p})+V(\mathbf{q},\lambda),
 \end{equation}
-where $T$ and $V$ are the kinetic energy and the potential, respectively. The potential can be adjusted by the external control parameter $\lambda$ and varies from the initial value $\lambda=A$ to the final value $\lambda=B$. If it varies slowly enough,it becomes a trivial quasistatic case. In more general cases, an external agent drives the system out of equilibrium before it relaxes into a state of equilibrium once again.%Please ensure that I have not changed your intended meaning here.
+where $T$ and $V$ are the kinetic energy and the potential, respectively. The potential can be adjusted by the external control parameter $\lambda$ and varies from the initial value $\lambda=A$ to the final value  $\lambda=B$. If it varies slowly enough, it becomes a trivial quasistatic case. In more general cases, an external agent drives the system out of equilibrium before it relaxes into a state of equilibrium once again.%Please ensure that I have not changed your intended meaning here.
 
 
 Initially, the system is in contact with a heat bath at a temperature of $T=\frac{1}{k_B\beta}$. Thus, it is a canonical ensemble characterised by the Boltzmann probability distribution:
@@ -186,7 +186,7 @@ The first term of the integral is the total work done on the system, and the sec
 \begin{align}
 Q(\Gamma_0,\tau)&\equiv\int_0^\tau\mathrm{d}t\  \frac{\partial H(\Gamma,\lambda)}{\partial{\Gamma}}\cdot\dot{\Gamma}=k_BT\int_0^\tau
 \Lambda(\Gamma_t) \mathrm{d}t\\
-W(\Gamma_0,\tau)&\equiv \int_0^\tau\mathrm{d}t\ \frac{\partial H(\Gamma,\lambda)}{\partial\Gamma}\cdot\dot\Gamma.
+W(\Gamma_0,\tau)&\equiv \int_0^\tau\mathrm{d}t\ \frac{\partial H(\Gamma,\lambda)}{\partial\lambda}\cdot\dot\lambda.
 \end{align}
 Hence, we can express the work done as a function of the energy difference associated with the initial and the final states, and we can express the phase space compression factor as
 \begin{equation}\label{eq:work_relation}
@@ -201,7 +201,7 @@ p_f(W=\mathcal{A})
 In the same way, we can write the probability of the anti-trajectories during which the system does work $\mathcal{A}$ to the external agent:
 
 \begin{equation}\label{eq:pb}
-p_b(W=-\mathcal{A})=\int d\Gamma_0^*\delta(W(\Gamma_0^*,A)+\mathcal{A}) p(H(\Gamma_0^*(,B)).
+p_b(W=-\mathcal{A})=\int d\Gamma_0^*\delta(W(\Gamma_0^*,A)+\mathcal{A}) p(H(\Gamma_0^*,B)).
 \end{equation}
 
 
@@ -286,11 +286,11 @@ Following the same procedure, we can also calculate the probability of the rever
 \frac{p_{k_0\to k_1}(W)}{p_{k_1\to k_0}(-W)}=\frac{\frac{k_1-k_0}{\beta k_0}e^{-\beta\frac{k_0W}{k_1-k_0}}}{\frac{k_0-k_1}{\beta k_1}e^{\beta\frac{k_1W}{k_0-k_1}}}=e^{\beta(W-\Delta F)}.
 \end{equation}
 
-This example can also be use to verify the Evans-Searles Fluctuation Theorem. Since the Evans-Searles Fluctuation Theorem requires that all processes are time-reversible, we need to change the protocol to meet this condition, which involves changing $k_1$ back to $k_0$ at time $t=\tau$.
+This example can also be used to verify the Evans-Searles Fluctuation theorem. Since the Evans-Searles Fluctuation Theorem requires that all processes are time-reversible, we need to change the protocol to meet this condition, which involves changing $k_1$ back to $k_0$ at time $t=\tau$.
 
 \section{conclusion}
 
-Fluctuation theorems bring us a deeper understanding of the irreversible process. Evans-Searles fluctuations resolved Lochimid‘s objection on Boltzmann's statistical thermodynamics. The Crooks Fluctuation Theorem and the Jarzynsky equality are powerful tools for investigating small systems with non-negligible fluctuations. However, due to time restrictions, we can only discuss the deterministic dynamics described by Hamiltonian mechanics. The quantum version of the fluctuation theorem and stochastic dynamics are also worth discussing. 
+Fluctuation theorems bring us a deeper understanding of the irreversible process. Evans-Searles fluctuations resolved Lochimid‘s objection on Boltzmann's statistical thermodynamics. The Crooks Fluctuation Theorem and Jarzynsky equality are powerful tools for investigating small systems with non-negligible fluctuations. However, due to time restrictions, we can only discuss the deterministic dynamics described by Hamiltonian mechanics. The quantum version of the fluctuation theorem and stochastic dynamics are also worth discussing. 
 \section{Appendix}
 
 \subsection{Hamiltonian mechanics with dissipative force}
@@ -318,7 +318,7 @@ To understand this, let us consider the case for states of equilibrium with quas
 \begin{equation}
 S=k_B\log \Omega,
 \end{equation}
-where $\Omega$ is the number of states. In a quasistatic process, we have 
+where $\Omega$ is the number of states. In a quasi-static process, we have 
 
 \begin{equation}
 \mathrm{d}S=\frac{\mathrm{d}Q}{T}.
